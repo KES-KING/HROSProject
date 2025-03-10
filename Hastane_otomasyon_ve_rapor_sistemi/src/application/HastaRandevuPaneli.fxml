@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RandevuClass">
    <children>
       <TabPane prefHeight="360.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
@@ -51,7 +51,7 @@
                               <Text layoutX="10.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="3" />
                               <Text layoutX="10.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gün Seçiniz: " textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="4" />
                               <Text layoutX="10.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saat Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="5" />
-                              <Button layoutX="440.0" layoutY="175.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" text="Çıkış" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <Button layoutX="440.0" layoutY="175.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" text="Çıkış" GridPane.columnIndex="4" GridPane.rowIndex="7" onAction="#cıkısekran"/>
                               <ComboBox prefHeight="26.0" prefWidth="209.0" promptText="Poliklinikler" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                               <ComboBox layoutX="225.0" layoutY="78.0" prefHeight="26.0" prefWidth="209.0" promptText="Doktorlar" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                               <DatePicker prefHeight="26.0" prefWidth="205.0" promptText="Günler" GridPane.columnIndex="2" GridPane.rowIndex="4" />
@@ -80,7 +80,7 @@
                            <children>
                               <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="192.0" text="Güncelle" />
                               <Button layoutX="10.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" text="Randevuyu İptal Et" GridPane.columnIndex="2" />
-                              <Button layoutX="104.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" text="Çıkış" GridPane.columnIndex="4" />
+                              <Button layoutX="104.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" text="Çıkış" GridPane.columnIndex="4" onAction="#cıkısekran" />
                            </children>
                         </GridPane>
                         <GridPane layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="570.0">

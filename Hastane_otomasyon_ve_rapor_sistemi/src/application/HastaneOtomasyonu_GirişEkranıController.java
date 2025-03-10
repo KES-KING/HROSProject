@@ -33,8 +33,8 @@ public class HastaneOtomasyonu_GirişEkranıController {
 
     private Connection connectDB() {
         String url = "jdbc:mysql://127.0.0.1:3306/Hrosmanagement";
-        String user = "root";  // MySQL kullanıcı adı
-        String password = "CK.252006";  // Eğer şifre koyduysan buraya ekle
+        String user = "appuser";  // MySQL kullanıcı adı
+        String password = "a1iA9GaXpjTKGq9lEgB!";  // Eğer şifre koyduysan buraya ekle
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
