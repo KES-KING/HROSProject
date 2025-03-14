@@ -9,141 +9,141 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RandevuClass">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RandevuClass">
    <children>
-      <TabPane prefHeight="360.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="461.0" prefWidth="880.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
          <tabs>
-            <Tab text="RandevuAl">
+            <Tab style="-fx-background-color: white;" text="RandevuAl">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <GridPane layoutX="10.0" layoutY="25.0" prefHeight="290.0" prefWidth="603.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" percentWidth="0.0" prefWidth="333.59998779296876" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="100.0" percentWidth="0.0" prefWidth="200.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="0.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="0.0" prefWidth="71.39999999999998" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" text="Randevuyu Onayla" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                              <Button layoutX="363.0" layoutY="270.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" text="Güncelle" GridPane.rowIndex="7" />
-                              <TextField layoutX="10.0" layoutY="13.0" promptText="Hastanın Adı Soyadı" GridPane.columnIndex="2" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Merhaba, Sayın: " textAlignment="RIGHT" wrappingWidth="200.0" />
-                              <Text layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="2" />
-                              <Text layoutX="10.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="3" />
-                              <Text layoutX="10.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gün Seçiniz: " textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="4" />
-                              <Text layoutX="10.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saat Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0" GridPane.rowIndex="5" />
-                              <Button layoutX="440.0" layoutY="175.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" text="Çıkış" GridPane.columnIndex="4" GridPane.rowIndex="7" onAction="#cıkısekran"/>
-                              <ComboBox prefHeight="26.0" prefWidth="209.0" promptText="Poliklinikler" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <ComboBox layoutX="225.0" layoutY="78.0" prefHeight="26.0" prefWidth="209.0" promptText="Doktorlar" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <DatePicker prefHeight="26.0" prefWidth="205.0" promptText="Günler" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                              <Spinner prefHeight="26.0" prefWidth="218.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                           </children>
-                        </GridPane>
+                        <Button layoutX="218.0" layoutY="329.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="226.0" style="-fx-background-color: blue; -fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15; -fx-text-fill: white;" text="Randevuyu Onayla">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="446.0" layoutY="329.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="227.0" style="-fx-background-color: blue; -fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="18.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="195.0" layoutY="174.0" prefHeight="25.0" prefWidth="217.0" promptText="Hastanın Adı Soyadı" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15;" />
+                        <Text layoutX="95.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Merhaba, Sayın: " textAlignment="RIGHT" wrappingWidth="200.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="381.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="78.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="360.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gün Seçiniz: " textAlignment="RIGHT" wrappingWidth="200.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="272.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saat Seçiniz:" textAlignment="RIGHT" wrappingWidth="200.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="327.0" layoutY="371.0" mnemonicParsing="false" onAction="#cıkısekran" prefHeight="34.0" prefWidth="226.0" style="-fx-background-color: blue; -fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15; -fx-text-fill: white;" text="Çıkış">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="17.0" />
+                           </font>
+                        </Button>
+                        <ComboBox layoutX="481.0" layoutY="174.0" prefHeight="26.0" prefWidth="219.0" promptText="Poliklinikler" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15;" />
+                        <ComboBox layoutX="194.0" layoutY="228.0" prefHeight="26.0" prefWidth="218.0" promptText="Doktorlar" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15;" />
+                        <DatePicker layoutX="485.0" layoutY="228.0" prefHeight="26.0" prefWidth="217.0" promptText="Günler" style="-fx-background-color: white; -fx-border-color: blue;" />
+                        <Spinner layoutX="332.0" layoutY="285.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white; -fx-border-color: blue;" />
+                        <ImageView fitHeight="150.0" fitWidth="140.0" layoutX="376.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/hr&amp;ys%20Logo.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Randevularım">
+            <Tab style="-fx-background-color: white;" text="Randevularım">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
-                        <GridPane layoutX="9.0" layoutY="271.0" prefHeight="58.0" prefWidth="578.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="75.39996337890625" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" percentWidth="0.0" prefWidth="15.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" percentWidth="0.0" prefWidth="188.00000000000003" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="0.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="192.0" text="Güncelle" />
-                              <Button layoutX="10.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" text="Randevuyu İptal Et" GridPane.columnIndex="2" />
-                              <Button layoutX="104.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" text="Çıkış" GridPane.columnIndex="4" onAction="#cıkısekran" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="570.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="75.39996337890625" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" percentWidth="0.0" prefWidth="15.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" percentWidth="0.0" prefWidth="188.00000000000003" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="0.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Merhaba, Sayın:" textAlignment="RIGHT" wrappingWidth="166.95391845703125" />
-                              <TextField promptText="Hastanın Adı Soyadı" GridPane.columnIndex="2" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="7.0" layoutY="66.0" prefHeight="106.0" prefWidth="573.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="190.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" percentWidth="0.0" prefWidth="15.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" percentWidth="0.0" prefWidth="190.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="190.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik:" textAlignment="CENTER" wrappingWidth="180.0" />
-                              <Text layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor:" textAlignment="CENTER" wrappingWidth="190.39996302127838" GridPane.columnIndex="2" />
-                              <Text layoutX="193.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Tarihi:" textAlignment="CENTER" wrappingWidth="180.0" GridPane.columnIndex="4" />
-                              <TextField promptText="Poliklinik" GridPane.rowIndex="1" />
-                              <TextField layoutX="10.0" layoutY="57.0" promptText="Doktor" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <TextField layoutX="204.0" layoutY="57.0" prefWidth="169.0" promptText="Randevu Tarihi" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="7.0" layoutY="172.0" prefHeight="106.0" prefWidth="574.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="190.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" percentWidth="0.0" prefWidth="15.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" percentWidth="0.0" prefWidth="190.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="190.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik:" textAlignment="CENTER" wrappingWidth="180.0" />
-                              <Text layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor:" textAlignment="CENTER" wrappingWidth="190.39996302127838" GridPane.columnIndex="2" />
-                              <Text layoutX="193.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Tarihi:" textAlignment="CENTER" wrappingWidth="180.0" GridPane.columnIndex="4" />
-                              <TextField promptText="Poliklinik" GridPane.rowIndex="1" />
-                              <TextField layoutX="10.0" layoutY="57.0" promptText="Doktor" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <TextField layoutX="204.0" layoutY="57.0" promptText="Randevu Tarihi" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                           </children>
-                        </GridPane>
-                        <ScrollBar layoutX="602.0" layoutY="54.0" orientation="VERTICAL" prefHeight="222.0" prefWidth="24.0" />
+                        <ScrollBar layoutX="841.0" layoutY="99.0" orientation="VERTICAL" prefHeight="222.0" prefWidth="24.0" />
+                        <Button layoutX="446.0" layoutY="329.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="226.0" style="-fx-background-color: blue; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="218.0" layoutY="329.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="226.0" style="-fx-background-color: blue; -fx-background-radius: 15; -fx-text-fill: white;" text="Randevuyu İptal Et">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="327.0" layoutY="371.0" mnemonicParsing="false" onAction="#cıkısekran" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: blue; -fx-background-radius: 15; -fx-text-fill: white;" text="Çıkış">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="17.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="323.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Merhaba, Sayın:" textAlignment="RIGHT" wrappingWidth="166.95391845703125">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="352.0" layoutY="181.0" prefHeight="27.0" prefWidth="190.0" promptText="Hastanın Adı Soyadı" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <Text layoutX="52.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik:" textAlignment="CENTER" wrappingWidth="180.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="353.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor:" textAlignment="CENTER" wrappingWidth="190.39996302127838">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="568.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Tarihi:" textAlignment="CENTER" wrappingWidth="180.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="114.0" layoutY="282.0" promptText="Poliklinik" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <TextField layoutX="352.0" layoutY="232.0" prefHeight="27.0" prefWidth="189.0" promptText="Doktor" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <TextField layoutX="606.0" layoutY="235.0" prefWidth="169.0" promptText="Randevu Tarihi" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <Text layoutX="52.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik:" textAlignment="CENTER" wrappingWidth="180.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="353.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktor:" textAlignment="CENTER" wrappingWidth="190.39996302127838">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="568.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Tarihi:" textAlignment="CENTER" wrappingWidth="180.0">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="114.0" layoutY="232.0" promptText="Poliklinik" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <TextField layoutX="352.0" layoutY="282.0" prefHeight="27.0" prefWidth="189.0" promptText="Doktor" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <TextField layoutX="610.0" layoutY="282.0" prefHeight="25.0" prefWidth="167.0" promptText="Randevu Tarihi" style="-fx-border-color: blue; -fx-background-color: white; -fx-border-radius: 15;" />
+                        <ImageView fitHeight="150.0" fitWidth="140.0" layoutX="376.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/hr&amp;ys%20Logo.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </content>

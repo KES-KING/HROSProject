@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -7,65 +8,69 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HastaneOtomasyonu_GirişEkranıController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="881.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HastaneOtomasyonu_GirişEkranıController">
    <children>
-      <TabPane layoutX="679.0" layoutY="189.0" prefHeight="212.0" prefWidth="167.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="278.0" layoutY="172.0" prefHeight="212.0" prefWidth="342.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Hasta girişi">
+          <Tab fx:id="HastaGirisButon" style="-fx-background-color: white;" text="Hasta girişi">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane fx:id="hastaGirisPanel" minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="209.0" style="-fx-background-color: white; -fx-ba: 40; -fx-background-radius: 20;">
                      <children>
-                        <TextField fx:id="txtUsernameE" layoutX="11.0" layoutY="37.0" prefHeight="24.0" prefWidth="146.0" promptText="T.C. Kimlik numaranızı girin">
+                        <TextField fx:id="txtUsernameE" alignment="CENTER" layoutX="64.0" layoutY="24.0" prefHeight="32.0" prefWidth="209.0" promptText="T.C. Kimlik numaranızı girin" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-color: white;">
                            <font>
-                              <Font size="11.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="txtPasswordD" layoutX="11.0" layoutY="82.0" prefHeight="26.0" prefWidth="146.0" promptText="Lütfen parola girin" />
-                        <Button layoutX="11.0" layoutY="122.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="67.0"  onAction="#handleLoginnorm" text="Giriş yap" />
-                        <Button layoutX="84.0" layoutY="122.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="67.0" onAction="#openkayıtekranı" text="Kayıt ol" />
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></TextField>
+                        <TextField fx:id="txtPasswordD" alignment="CENTER" layoutX="64.0" layoutY="66.0" prefHeight="34.0" prefWidth="208.0" promptText="Lütfen parola girin" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-color: white;">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></TextField>
+                        <Button fx:id="hastaGirisYapButon" layoutX="114.0" layoutY="111.0" mnemonicParsing="false" onAction="#handleLoginnorm" prefHeight="25.0" prefWidth="105.0" style="-fx-padding: 5; -fx-background-radius: 15; -fx-background-color: blue; -fx-text-fill: white;" text="Giriş yap">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="hastaKayitOlButon" layoutX="114.0" layoutY="144.0" mnemonicParsing="false" onAction="#openkayıtekranı" prefHeight="25.0" prefWidth="104.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-background-color: blue; -fx-text-fill: white;" text="Kayıt ol">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Doktor girişi">
+          <Tab fx:id="DoktorGirisButon" style="-fx-background-color: white; -fx-text-fill: blue;" text="Doktor girişi">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-background-color: white; -f: ;">
                      <children>
-                        <TextField fx:id="txtUsername" layoutX="14.0" layoutY="30.0" prefHeight="24.0" prefWidth="146.0" promptText="T.C. Kimlik numaranızı girin"/>
+                        <TextField fx:id="txtUsername" alignment="CENTER" layoutX="64.0" layoutY="24.0" prefHeight="32.0" prefWidth="208.0" promptText="T.C. Kimlik numaranızı girin" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 15;">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></TextField>
                        
                
-                        <TextField fx:id="txtPassword" layoutX="14.0" layoutY="75.0" prefHeight="26.0" prefWidth="146.0" promptText="Lütfen parola girin" />
-                        <Button layoutX="54.0" layoutY="115.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="67.0" onAction="#handleLogin" text="Giriş yap" />
-                        <GridPane layoutX="-6.0" layoutY="31.0" prefHeight="114.0" prefWidth="200.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
+                        <TextField fx:id="txtPassword" alignment="CENTER" layoutX="64.0" layoutY="66.0" prefHeight="34.0" prefWidth="207.0" promptText="Lütfen parola girin" style="-fx-border-radius: 15; -fx-background-color: white; -fx-border-color: blue;" styleClass="f">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></TextField>
+                        <Button layoutX="112.0" layoutY="112.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Giriş yap">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
-      <ImageView fitHeight="94.0" fitWidth="97.0" layoutX="714.0" layoutY="56.0">
+      <ImageView fitHeight="94.0" fitWidth="97.0" layoutX="392.0" layoutY="54.0">
          <image>
             <Image url="@pictures/hr&amp;ys%20Logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="461.0" fitWidth="657.0">
-         <image>
-            <Image url="@pictures/657x461%20px.png" />
          </image>
       </ImageView>
    </children>
