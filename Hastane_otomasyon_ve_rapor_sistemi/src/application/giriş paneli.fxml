@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="881.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HastaneOtomasyonu_GirişEkranıController">
    <children>
-      <TabPane layoutX="278.0" layoutY="172.0" prefHeight="212.0" prefWidth="342.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="268.0" layoutY="182.0" prefHeight="212.0" prefWidth="342.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="HastaGirisButon" style="-fx-background-color: white;" text="Hasta girişi">
             <content>
@@ -68,7 +68,7 @@
           </Tab>
         </tabs>
       </TabPane>
-      <ImageView fitHeight="94.0" fitWidth="97.0" layoutX="392.0" layoutY="54.0">
+      <ImageView fitHeight="94.0" fitWidth="97.0" layoutX="382.0" layoutY="54.0">
          <image>
             <Image url="@pictures/hr&amp;ys%20Logo.png" />
          </image>
