@@ -56,7 +56,7 @@ public class giriserkanıController {
                 if (yonetici == 1) {
                     openDashboard(event, "PersonelPaneli.fxml"); // Yönetici ekranı aç 1
                 } else {
-                    openDashboard(event, "doktor yönetim paneli.fxml"); // Kullanıcı ekranı aç 0
+                    openDashboard(event, "doktor_yönetim_paneli.fxml"); // Kullanıcı ekranı aç 0
                 }
             } else {
                 showAlert(AlertType.ERROR, "Hata", "T.C. Kimlik Numarası veya Şifre hatalı!");
