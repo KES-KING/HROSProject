@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PoliklinikController">
    <children>
-      <TabPane prefHeight="461.0" prefWidth="880.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="461.0" prefWidth="943.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Personel İşlemleri">
             <content>
@@ -103,45 +105,50 @@
             </Tab>
             <Tab text="Poliklinik İşlemleri">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="432.0" prefWidth="924.0" style="-fx-background-color: white;">
                      <children>
-                        <TextField alignment="CENTER" layoutX="66.0" layoutY="137.0" promptText="Poliklinik Adı">
+                        <TextField fx:id="txtIsim" alignment="CENTER" layoutX="31.0" layoutY="121.0" prefHeight="39.0" prefWidth="284.0" promptText="Poliklinik Adı">
                            <font>
-                              <Font name="Franklin Gothic Demi" size="27.0" />
+                              <Font size="18.0" />
                            </font>
                         </TextField>
-                        <ComboBox layoutX="224.0" layoutY="304.0" prefHeight="36.0" prefWidth="170.0" promptText="Poliklinikler" style="-fx-border-color: #c4d8fb; -fx-border-radius: 15; -fx-background-color: #c4d8fb; -fx-background-radius: 15; -fx-text-fill: white;" />
-                        <Button layoutX="136.0" layoutY="353.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="163.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Ekle">
+                        <ComboBox fx:id="comboPoliklinikler" layoutX="145.0" layoutY="303.0" prefHeight="36.0" prefWidth="170.0" promptText="Poliklinikler" style="-fx-border-color: #c4d8fb; -fx-border-radius: 15; -fx-background-color: #c4d8fb; -fx-background-radius: 15; -fx-text-fill: white;" />
+                        <Button layoutX="14.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleEkle" prefHeight="36.0" prefWidth="120.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Ekle">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
                            </font></Button>
-                        <Button layoutX="224.0" layoutY="253.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Sil">
+                        <Button layoutX="14.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleSil" prefHeight="36.0" prefWidth="120.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Sil">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
                            </font></Button>
-                        <Button layoutX="224.0" layoutY="204.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="15.0" />
-                           </font></Button>
-                        <Button layoutX="39.0" layoutY="253.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Kaydet">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="15.0" />
-                           </font></Button>
-                        <Button layoutX="39.0" layoutY="203.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Ara">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="15.0" />
-                           </font></Button>
-                        <ComboBox layoutX="38.0" layoutY="304.0" prefHeight="36.0" prefWidth="171.0" promptText="Poliklinikteki Doktorlar" style="-fx-border-color: #c4d8fb; -fx-border-radius: 15; -fx-background-color: #c4d8fb; -fx-background-radius: 15; -fx-text-fill: white;" />
+                        <ComboBox layoutX="145.0" layoutY="256.0" prefHeight="36.0" prefWidth="171.0" promptText="Poliklinikteki Doktorlar" style="-fx-border-color: #c4d8fb; -fx-border-radius: 15; -fx-background-color: #c4d8fb; -fx-background-radius: 15; -fx-text-fill: white;" />
                         <ImageView fitHeight="325.0" fitWidth="412.0" layoutX="431.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/poliklinik.png" />
                            </image>
                         </ImageView>
-                        <Text fill="#dd4437" layoutX="113.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POLIKLINIKLER">
+                        <Text fill="#dd4437" layoutX="31.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poliklinik İşlemleri">
                            <font>
-                              <Font name="Franklin Gothic Demi Cond" size="37.0" />
+                              <Font size="24.0" />
                            </font>
                         </Text>
+                       	<TableView fx:id="tableView" layoutX="325.0" layoutY="70.0" prefHeight="346.0" prefWidth="606.0" style="-fx-margin: 10 0 0 0;">
+					        <columns>
+					            <TableColumn fx:id="colId" prefWidth="31.0" text="ID" />
+						        <TableColumn fx:id="colIsim" prefWidth="220.0" text="İsim" />
+						        <TableColumn fx:id="colAciklama" prefWidth="354.0" text="Açıklama" />
+					        </columns>
+					    </TableView>
+                        <TextField fx:id="txtAciklama" alignment="CENTER" layoutX="31.0" layoutY="183.0" prefHeight="39.0" prefWidth="285.0" promptText="Poliklinik Açıklaması">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="843.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleYenile" prefHeight="36.0" prefWidth="84.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Yenile">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="15.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </content>
