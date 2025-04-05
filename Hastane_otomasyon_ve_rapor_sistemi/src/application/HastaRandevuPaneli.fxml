@@ -2,10 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
@@ -15,7 +17,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RandevuClass">
    <children>
       <TabPane prefHeight="600.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
@@ -24,64 +25,46 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="1100.0" style="-fx-background-color: white;">
                      <children>
-                        <Pane layoutX="29.0" layoutY="12.0" prefHeight="546.0" prefWidth="406.0" style="-fx-border-color: #8888ff; -fx-border-radius: 20; -fx-border-width: 5; -fx-background-radius: 20; -fx-background-color: bfbfea;">
+                        <Pane layoutX="29.0" layoutY="12.0" prefHeight="546.0" prefWidth="406.0" style="-fx-border-radius: 20; -fx-border-width: 5; -fx-background-radius: 20; -fx-background-color: #b3d2ff;">
                            <children>
-                              <Text fill="#3636df" layoutX="176.0" layoutY="81.0" scaleX="4.0" scaleY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="  RANDEVU OLUŞTURMA" wrappingWidth="70.65615338087082" />
-                              <TextField layoutX="136.0" layoutY="182.0" prefHeight="27.0" prefWidth="225.0" promptText="Hasta Adı Soyadı" style="-fx-border-color: blue; -fx-border-radius: 10; -fx-background-radius: 10;" />
-                              <TextField layoutX="136.0" layoutY="228.0" prefHeight="27.0" prefWidth="224.0" promptText="TC Kimlik NO" style="-fx-border-color: blue; -fx-border-radius: 10; -fx-background-radius: 10;" />
-                              <Text layoutX="28.0" layoutY="200.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="İsim Soyisim" wrappingWidth="67.2034797668457">
+                              <Text fill="#5175c6" layoutX="167.0" layoutY="106.0" scaleX="4.0" scaleY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RANDEVU AL" textAlignment="CENTER" wrappingWidth="79.05616253614426">
                                  <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="37.0" layoutY="289.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="poliklinikler" wrappingWidth="68.53675842285156">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="32.0" layoutY="245.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="TC Kimlik NO" wrappingWidth="78.93674850463867">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font>
-                              </Text>
-                              <TitledPane animated="false" layoutX="147.0" layoutY="272.0" prefHeight="0.0" prefWidth="202.0" text="Poliklinik seçin">
+                                    <Font name="Franklin Gothic Demi Cond" size="12.0" />
+                                 </font></Text>
+                              <TextField fx:id="RandevuAl_isimSoyisim" layoutX="96.0" layoutY="182.0" prefHeight="27.0" prefWidth="225.0" promptText="Hasta Adı Soyadı" style="-fx-border-color: #5175c6; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                              <TextField fx:id="RandevuAl_KimlikNumarasi" layoutX="96.0" layoutY="218.0" prefHeight="27.0" prefWidth="224.0" promptText="TC Kimlik NO" style="-fx-border-color: #5175c6; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                              <TitledPane fx:id="RandevuAl_PoliklinikSecimi" animated="false" layoutX="98.0" layoutY="252.0" prefHeight="29.0" prefWidth="224.0" style="-fx-border-color: #5175c6;" text="Poliklinik seçin">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
                               </TitledPane>
-                              <TitledPane animated="false" layoutX="147.0" layoutY="310.0" prefHeight="0.0" prefWidth="202.0" text="doktor seçin">
+                              <TitledPane fx:id="RandevuAl_DoktorSecimi" animated="false" layoutX="98.0" layoutY="290.0" prefHeight="0.0" prefWidth="224.0" style="-fx-border-color: #5175c6;" text="doktor seçin">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
                               </TitledPane>
-                              <Text layoutX="45.0" layoutY="327.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Doktorlar" wrappingWidth="51.47016143798828">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="30.0" layoutY="369.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Tarihi" wrappingWidth="79.7368278503418">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="31.0" layoutY="408.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Saati" wrappingWidth="80.53681564331055">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font>
-                              </Text>
-                              <TitledPane animated="false" layoutX="147.0" layoutY="351.0" prefHeight="0.0" prefWidth="202.0" text="Tarih seçiniz">
+                              <TitledPane fx:id="RandevuAl_TarihSecimi" animated="false" layoutX="98.0" layoutY="329.0" prefHeight="0.0" prefWidth="224.0" style="-fx-border-color: #5175c6;" text="Tarih seçiniz">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
                               </TitledPane>
-                              <TitledPane animated="false" layoutX="147.0" layoutY="390.0" prefHeight="6.0" prefWidth="202.0" text="Saati Seçiniz">
+                              <TitledPane fx:id="RandevuAl_SaatSecimi" animated="false" layoutX="98.0" layoutY="368.0" prefHeight="6.0" prefWidth="224.0" style="-fx-border-color: #5175c6;" text="Saati Seçiniz">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
                               </TitledPane>
-                              <Button layoutX="45.0" layoutY="443.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Onayla" />
-                              <Button layoutX="272.0" layoutY="440.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #3636df; -fx-text-fill: white;" text="Güncelle" />
-                              <Button layoutX="158.0" layoutY="492.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="90.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: #3636df; -fx-text-fill: white;" text="Çıkış" />
+                              <Button fx:id="btn_RandevuAl_onayla" alignment="CENTER" layoutX="45.0" layoutY="453.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Onayla">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="btn_RandevuAl_Guncelle" alignment="CENTER" layoutX="272.0" layoutY="450.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Güncelle">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="btn_RandevuAl_Cıkıs" alignment="CENTER" layoutX="158.0" layoutY="450.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="90.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Çıkış">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium" size="12.0" />
+                                 </font></Button>
                            </children>
                         </Pane>
                         <ImageView fitHeight="435.0" fitWidth="526.0" layoutX="517.0" layoutY="49.0">
@@ -95,222 +78,52 @@
             </Tab>
             <Tab text="Randevularım">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
-                        <Text fill="#3636df" layoutX="505.0" layoutY="72.0" scaleX="5.0" scaleY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RANDEVULARIM" />
-                        <Pane layoutY="123.0" prefHeight="447.0" prefWidth="1100.0" style="-fx-background-color: c9c9c9;">
+                        <Text fill="#5174c6" layoutX="250.0" layoutY="77.0" scaleX="5.0" scaleY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RANDEVULARIM">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="10.0" />
+                           </font></Text>
+                        <Pane fx:id="tableView_Randevularım" layoutX="551.0" prefHeight="574.0" prefWidth="551.0" style="-fx-background-color: c9c9c9;">
                            <children>
-                              <Pane layoutX="-1.0" prefHeight="47.0" prefWidth="1063.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="55.0" prefHeight="47.0" prefWidth="1062.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="111.0" prefHeight="47.0" prefWidth="1065.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="166.0" prefHeight="47.0" prefWidth="1065.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="277.0" prefHeight="47.0" prefWidth="1059.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="221.0" prefHeight="47.0" prefWidth="1060.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="332.0" prefHeight="47.0" prefWidth="1057.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="-1.0" layoutY="386.0" prefHeight="47.0" prefWidth="1061.0" style="-fx-background-color: b0e2ff; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: blue;">
-                                 <children>
-                                    <Label layoutX="45.0" layoutY="15.0" text="Poliklinik">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="213.0" layoutY="17.0" text="Doktor">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="348.0" layoutY="15.0" text="Randevu Tarihi">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="553.0" layoutY="15.0" text="Randevu Saati">
-                                       <font>
-                                          <Font name="Franklin Gothic Medium" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Button layoutX="748.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Sil" />
-                                    <Button layoutX="888.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #3636df; -fx-background-radius: 15; -fx-text-fill: white;" text="Güncelle" />
-                                 </children>
-                              </Pane>
                               <ScrollBar layoutX="1072.0" layoutY="4.0" orientation="VERTICAL" prefHeight="444.0" prefWidth="14.0" />
+                              <TableView layoutX="-1.0" prefHeight="44.0" prefWidth="553.0">
+                                <columns>
+                                  <TableColumn fx:id="tableView_Randevularım_Poliklinik" prefWidth="135.20001220703125" text="Poliklinik" />
+                                  <TableColumn fx:id="tableView_Randevularım_Doktor" prefWidth="130.39996337890625" text="Doktor" />
+                                    <TableColumn fx:id="tableView_Randevularım_RandevuTarihi" prefWidth="143.199951171875" text="Randevu Tarihi" />
+                                    <TableColumn fx:id="tableView_Randevularım_RandevuSaati" prefWidth="139.20013427734375" text="Randevu Saati" />
+                                </columns>
+                              </TableView>
                            </children>
                         </Pane>
+                        <TextField fx:id="Randevularım_saatSecimi" layoutX="289.0" layoutY="152.0" prefHeight="31.0" prefWidth="170.0" />
+                        <DatePicker fx:id="Randevularım_tarihSecimi" layoutX="90.0" layoutY="153.0" prefHeight="29.0" prefWidth="169.0" />
+                        <ImageView fitHeight="277.0" fitWidth="402.0" layoutX="70.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/rapor.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#5174c6" layoutX="90.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Tarihi" wrappingWidth="98.8018798828125">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#5174c6" layoutX="289.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randevu Saati" wrappingWidth="98.8018798828125">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btn_Randevularım_sil" contentDisplay="CENTER" layoutX="283.0" layoutY="203.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #c0ddff; -fx-text-fill: #5174c6;" text="Sil">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_Randevularım_guncelle" contentDisplay="CENTER" layoutX="140.0" layoutY="203.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #c0ddff; -fx-text-fill: #5174c6;" text="Güncelle">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </content>
