@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -12,54 +11,86 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="385.0" layoutY="111.0" prefHeight="22.0" prefWidth="149.0" />
-      <Pane layoutX="676.0" layoutY="40.0" prefHeight="523.0" prefWidth="397.0" style="-fx-background-color: #e0edfe; -fx-background-radius: 20;">
-         <children>
-            <Text fill="RED" layoutX="124.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #e15a46;" text="KAYIT OL">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="40.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="189.0" fitWidth="171.0" layoutX="117.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@HROSProject-master/HROSProject-master/Hastane_otomasyon_ve_rapor_sistemi/src/application/pictures/dsadassd.png" />
-               </image>
-            </ImageView>
-            <TextField fx:id="hastaRandevu_isimSoyisim" alignment="CENTER" layoutX="24.0" layoutY="229.0" prefHeight="40.0" prefWidth="160.0" promptText="Ad Soyad" style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="18.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="hastaRandevu_KimlikNo" alignment="CENTER" layoutX="215.0" layoutY="229.0" prefHeight="40.0" prefWidth="160.0" promptText="T.C. Kimlik" style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="18.0" />
-               </font>
-            </TextField>
-            <DatePicker fx:id="hastaRandevu_DogumTarihi" layoutX="24.0" layoutY="341.0" prefHeight="40.0" prefWidth="160.0" promptText="Doğum tarihinizi girin" />
-            <ComboBox fx:id="hastaRandevu_Cinsiyet" editable="true" layoutX="215.0" layoutY="341.0" prefHeight="40.0" prefWidth="160.0" promptText="lütfen cinsiyet seçin" />
-            <TextField fx:id="hastaRandevu_Parola" alignment="CENTER" layoutX="24.0" layoutY="282.0" prefHeight="40.0" prefWidth="160.0" promptText="Parola Girin" style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="18.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="hastaRandevu_TekrarParola" alignment="CENTER" layoutX="215.0" layoutY="282.0" prefHeight="40.0" prefWidth="160.0" promptText="Parolayı tekrar girin" style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="18.0" />
-               </font>
-            </TextField>
-            <Button fx:id="btn_hastaRandevu_Olustur" layoutX="124.0" layoutY="424.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="149.0" style="-fx-background-color: #e15a46; -fx-text-fill: white; -fx-background-radius: 15;" text="Oluştur">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="21.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <ImageView fitHeight="383.0" fitWidth="529.0" layoutX="87.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@HROSProject-master/HROSProject-master/Hastane_otomasyon_ve_rapor_sistemi/src/application/pictures/hastan2.png" />
-         </image>
-      </ImageView>
-   </children>
+<AnchorPane fx:controller="application.KayıtPanelController"
+	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0"
+	style="-fx-background-color: white;"
+	xmlns="http://javafx.com/javafx/23.0.1"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<Label layoutX="385.0" layoutY="111.0" prefHeight="22.0"
+			prefWidth="149.0" />
+		<Pane layoutX="676.0" layoutY="40.0" prefHeight="523.0"
+			prefWidth="397.0"
+			style="-fx-background-color: #e0edfe; -fx-background-radius: 20;">
+			<children>
+				<Text fill="RED" layoutX="124.0" layoutY="185.0"
+					strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #e15a46;"
+					text="KAYIT OL">
+					<font>
+						<Font name="Franklin Gothic Medium" size="40.0" />
+					</font>
+				</Text>
+				<ImageView fitHeight="189.0" fitWidth="171.0"
+					layoutX="117.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image
+							url="@HROSProject-master/HROSProject-master/Hastane_otomasyon_ve_rapor_sistemi/src/application/pictures/dsadassd.png" />
+					</image>
+				</ImageView>
+				<TextField fx:id="txtAd" alignment="CENTER" layoutX="24.0"
+					layoutY="229.0" prefHeight="40.0" prefWidth="160.0"
+					promptText="Ad Soyad"
+					style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
+					<font>
+						<Font name="Franklin Gothic Medium" size="18.0" />
+					</font>
+				</TextField>
+				<TextField fx:id="txtTC" alignment="CENTER"
+					layoutX="215.0" layoutY="229.0" prefHeight="40.0" prefWidth="160.0"
+					promptText="T.C. Kimlik"
+					style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
+					<font>
+						<Font name="Franklin Gothic Medium" size="18.0" />
+					</font>
+				</TextField>
+				<DatePicker fx:id="dateDogumTarihi" layoutX="119.0"
+					layoutY="339.0" prefHeight="40.0" prefWidth="160.0"
+					promptText="Doğum tarihinizi girin" />
+				<TextField fx:id="txtParola" alignment="CENTER"
+					layoutX="24.0" layoutY="282.0" prefHeight="40.0" prefWidth="160.0"
+					promptText="Parola Girin"
+					style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
+					<font>
+						<Font name="Franklin Gothic Medium" size="18.0" />
+					</font>
+				</TextField>
+				<Button fx:id="btn_hastaRandevu_Olustur"
+					onAction="#handleKaydetAction" 
+					layoutX="124.0" layoutY="424.0"
+					mnemonicParsing="false"
+					prefHeight="43.0" prefWidth="149.0"
+					style="-fx-background-color: #e15a46; -fx-text-fill: white; -fx-background-radius: 15;"
+					text="Oluştur">
+					<font>
+						<Font name="Franklin Gothic Medium" size="21.0" />
+					</font>
+				</Button>
+				<TextField fx:id="txtCinsiyet" alignment="CENTER"
+					layoutX="208.0" layoutY="282.0" prefHeight="40.0" prefWidth="160.0"
+					promptText="Cinsiyet"
+					style="-fx-border-color: #e15a46; -fx-background-radius: 10; -fx-border-radius: 10;">
+					<font>
+						<Font name="Franklin Gothic Medium" size="18.0" />
+					</font>
+				</TextField>
+			</children>
+		</Pane>
+		<ImageView fitHeight="383.0" fitWidth="529.0" layoutX="87.0"
+			layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@pictures/degisik.png" />
+			</image>
+		</ImageView>
+	</children>
 </AnchorPane>

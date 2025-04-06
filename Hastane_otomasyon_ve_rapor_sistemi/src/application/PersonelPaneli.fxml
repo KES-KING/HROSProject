@@ -2,7 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PersonelController">
    <children>
       <TabPane prefHeight="600.0" prefWidth="1099.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -30,7 +31,7 @@
                                     <Font name="Franklin Gothic Demi Cond" size="37.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_isim" layoutX="56.0" layoutY="120.0" prefHeight="31.0" prefWidth="202.0" promptText="Ahmet*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
+                              <TextField fx:id="txtAd" layoutX="56.0" layoutY="120.0" prefHeight="31.0" prefWidth="202.0" promptText="Ahmet*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -40,7 +41,7 @@
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_soyisim" layoutX="57.0" layoutY="186.0" prefHeight="31.0" prefWidth="202.0" promptText="Okur*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
+                              <TextField fx:id="txtSoyad" layoutX="57.0" layoutY="186.0" prefHeight="31.0" prefWidth="202.0" promptText="Okur*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -50,17 +51,12 @@
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_yas" layoutX="56.0" layoutY="253.0" prefHeight="31.0" prefWidth="202.0" promptText="30*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </TextField>
-                              <Text layoutX="64.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personel yaşı">
+                              <Text layoutX="64.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doğum Tarihi">
                                  <font>
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_telefonNo" layoutX="56.0" layoutY="317.0" prefHeight="31.0" prefWidth="202.0" promptText="51 032 033 3445*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
+                              <TextField fx:id="txtTelefon" layoutX="56.0" layoutY="317.0" prefHeight="31.0" prefWidth="202.0" promptText="51 032 033 3445*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -70,7 +66,7 @@
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_cinsiyet" layoutX="322.0" layoutY="120.0" prefHeight="31.0" prefWidth="202.0" promptText="Erkek*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
+                              <TextField fx:id="txtCinsiyet" layoutX="322.0" layoutY="120.0" prefHeight="31.0" prefWidth="202.0" promptText="Erkek*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -80,7 +76,7 @@
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_eposta" layoutX="322.0" layoutY="185.0" prefHeight="31.0" prefWidth="202.0" promptText="ahmetokur@gmail.com*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
+                              <TextField fx:id="txtEposta" layoutX="322.0" layoutY="185.0" prefHeight="31.0" prefWidth="202.0" promptText="ahmetokur@gmail.com*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -90,7 +86,7 @@
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_kimlikNo" layoutX="319.0" layoutY="253.0" prefHeight="31.0" prefWidth="202.0" promptText="10000000001*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
+                              <TextField fx:id="txtTC" layoutX="319.0" layoutY="253.0" prefHeight="31.0" prefWidth="202.0" promptText="10000000001*" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -100,36 +96,28 @@
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="personelPaneli_Parola" layoutX="322.0" layoutY="317.0" prefHeight="31.0" prefWidth="202.0" promptText="*********" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </TextField>
                               <Text layoutX="330.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parola">
                                  <font>
                                     <Font name="Franklin Gothic Medium" size="14.0" />
                                  </font>
                               </Text>
-                              <Button fx:id="btn_personelPaneli_kaydet" layoutX="328.0" layoutY="371.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="94.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Kaydet">
+                              <Button fx:id="btn_personelPaneli_sil" layoutX="194.0" layoutY="371.0" mnemonicParsing="false" onAction="#personelsil" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Personel Sil">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btn_personelPaneli_sil" layoutX="194.0" layoutY="371.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Personel Sil">
+                              <Button fx:id="btnKaydet" layoutX="57.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleKaydetAction" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Personel Ekle">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btn_personelPaneli_ekle" layoutX="57.0" layoutY="371.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Personel Ekle">
+                              <Button fx:id="btn_personelPaneli_guncelle" onAction="#handleGuncelleAction" layoutX="335.0" layoutY="371.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="94.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Güncelle">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btn_personelPaneli_guncelle" layoutX="437.0" layoutY="371.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="94.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Güncelle">
-                                 <font>
-                                    <Font name="Arial Rounded MT Bold" size="12.0" />
-                                 </font>
-                              </Button>
+                              <DatePicker fx:id="dateDogumTarihi" layoutX="59.0" layoutY="256.0" prefHeight="25.0" prefWidth="197.0" />
+                              <PasswordField fx:id="txtParola" layoutX="319.0" layoutY="317.0" prefHeight="31.0" prefWidth="202.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #ed5150; -fx-background-radius: 15;" />
                            </children>
                         </Pane>
                         <Pane layoutX="713.0" layoutY="50.0" prefHeight="109.0" prefWidth="316.0" style="-fx-background-color: #e6edfd; -fx-background-radius: 10;">
@@ -153,12 +141,12 @@
                         </Pane>
                         <Pane layoutX="713.0" layoutY="192.0" prefHeight="329.0" prefWidth="316.0" style="-fx-background-color: #e6edfd; -fx-background-radius: 10;">
                            <children>
-                              <Button fx:id="btn_personelPaneli_imagePicture" layoutX="101.0" layoutY="289.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Gorsel Ekle">
+                              <Button fx:id="btn_personelPaneli_imagePicture" onAction="#handleResimEkleAction" layoutX="101.0" layoutY="289.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #ed5150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-fill: white;" text="Gorsel Ekle">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="personelPaneli_imagePicture" fitHeight="253.0" fitWidth="238.0" layoutX="41.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgPersonel" fitHeight="253.0" fitWidth="238.0" layoutX="41.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@pictures/photo.png" />
                                  </image>
@@ -173,16 +161,16 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
-                        <TableView layoutX="395.0" layoutY="-2.0" prefHeight="574.0" prefWidth="704.0">
-                          <columns>
-                            <TableColumn fx:id="tableView_personelListesi_isim" prefWidth="98.4000244140625" text="İsim" />
-                            <TableColumn fx:id="tableView_personelListesi_Soyisim" prefWidth="73.5999755859375" text="Soyisim" />
-                              <TableColumn fx:id="tableView_personelListesi_Cinsiyet" prefWidth="85.5999755859375" text="Cinsiyet" />
-                              <TableColumn fx:id="tableView_personelListesi_Yas" prefWidth="70.4000244140625" text="Yaş" />
-                              <TableColumn fx:id="tableView_personelListesi_kimlikNo" prefWidth="121.5999755859375" text="Kimlik Numarası" />
-                              <TableColumn fx:id="tableView_personelListesi_TelefonNo" prefWidth="124.0" text="Telefon Numarası" />
-                              <TableColumn fx:id="tableView_personelListesi_eposta" prefWidth="132.0" text="e-posta" />
-                          </columns>
+                        <TableView fx:id="personelTableView" layoutX="395.0" layoutY="-2.0" prefHeight="574.0" prefWidth="704.0">
+                          	<columns>
+					            <TableColumn fx:id="colAd" prefWidth="120" text="Ad" />
+					            <TableColumn fx:id="colSoyad" prefWidth="120" text="Soyad" />
+					            <TableColumn fx:id="colCinsiyet" prefWidth="52.0" text="Cinsiyet" />
+					            <TableColumn fx:id="colYas" prefWidth="52.0" text="Yaş" />
+					            <TableColumn fx:id="colTcNo" prefWidth="110.0" text="TC No" />
+					            <TableColumn fx:id="colTelefon" prefWidth="83.0" text="Telefon" />
+					            <TableColumn fx:id="colEposta" prefWidth="166.0" text="E-posta" />
+					        </columns>
                         </TableView>
                         <Pane layoutX="22.0" layoutY="113.0" prefHeight="278.0" prefWidth="350.0" style="-fx-background-color: #e6edfd; -fx-background-radius: 20;">
                            <children>
@@ -191,14 +179,12 @@
                                     <Font name="Franklin Gothic Demi Cond" size="37.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="PersonelListesi_isim" alignment="CENTER" layoutX="40.0" layoutY="86.0" prefHeight="27.0" prefWidth="255.0" promptText="Personel Adı" style="-fx-border-color: #8f3d3b; -fx-border-radius: 15; -fx-background-radius: 15;" />
-                              <TextField fx:id="PersonelListesi_soyisim" alignment="CENTER" layoutX="41.0" layoutY="129.0" prefHeight="27.0" prefWidth="255.0" promptText="Personel Soyadı" style="-fx-border-color: #8f3d3b; -fx-border-radius: 15; -fx-background-radius: 15;" />
-                              <Button fx:id="btn_personelListesi_ara" alignment="CENTER" layoutX="96.0" layoutY="220.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: #007cff; -fx-text-fill: white; -fx-background-radius: 15;" text="Ara">
+                              <Button fx:id="btnAra" alignment="CENTER" layoutX="103.0" layoutY="139.0" mnemonicParsing="false" onAction="#handleAraActionDB" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: #007cff; -fx-text-fill: white; -fx-background-radius: 15;" text="Ara">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="PersonelListesi_kimlikNo" alignment="CENTER" layoutX="42.0" layoutY="171.0" prefHeight="27.0" prefWidth="255.0" promptText="Kimlik Numarası" style="-fx-border-color: #8f3d3b; -fx-border-radius: 15; -fx-background-radius: 15;" />
+                              <TextField fx:id="txtAramaTC" alignment="CENTER" layoutX="42.0" layoutY="95.0" prefHeight="27.0" prefWidth="255.0" promptText="Kimlik Numarası" style="-fx-border-color: #8f3d3b; -fx-border-radius: 15; -fx-background-radius: 15;" />
                            </children>
                         </Pane>
                      </children>
@@ -209,12 +195,11 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
-                        <ComboBox fx:id="PoliklinikIslemler_PoliklinikSecimi" layoutX="232.0" layoutY="336.0" prefHeight="36.0" prefWidth="166.0" promptText="Poliklinikler" style="-fx-border-color: #c4d8fb; -fx-border-radius: 15; -fx-background-color: #c4d8fb; -fx-background-radius: 15; -fx-text-fill: white;" />
-                        <Button fx:id="btn_PoliklinikIslemler_ekle" layoutX="53.0" layoutY="165.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Ekle">
+                        <Button fx:id="btn_PoliklinikIslemler_ekle" layoutX="53.0" layoutY="165.0" mnemonicParsing="false" onAction="#polikaydet" prefHeight="36.0" prefWidth="150.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Ekle">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
                            </font></Button>
-                        <Button fx:id="btn_PoliklinikIslemler_sil" layoutX="223.0" layoutY="165.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Sil">
+                        <Button fx:id="btn_PoliklinikIslemler_sil" layoutX="223.0" layoutY="165.0" mnemonicParsing="false" onAction="#polisil" prefHeight="36.0" prefWidth="150.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Poliklinik Sil">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
                            </font></Button>
@@ -223,16 +208,12 @@
                               <Font name="Franklin Gothic Demi Cond" size="37.0" />
                            </font>
                         </Text>
-                        <TableView layoutX="416.0" prefHeight="573.0" prefWidth="684.0">
+                        <TableView fx:id="poliklinikTableView" layoutX="416.0" prefHeight="573.0" prefWidth="684.0">
                           <columns>
-                            <TableColumn fx:id="tableView_PoliklinikIslemleri_isim" prefWidth="75.0" text="İsim" />
-                            <TableColumn fx:id="tableView_PoliklinikIslemleri_soyisim" prefWidth="75.0" text="Soyisim" />
-                              <TableColumn fx:id="tableView_PoliklinikIslemleri_kimlikNo" prefWidth="119.99993896484375" text="Kimlik Numarası" />
-                              <TableColumn fx:id="tableView_PoliklinikIslemleri_cinsiyet" prefWidth="61.5999755859375" text="Cinsiyet" />
-                              <TableColumn fx:id="tableView_PoliklinikIslemleri_yaş" prefWidth="56.7999267578125" text="Yaş" />
-                              <TableColumn fx:id="tableView_PoliklinikIslemleri_eposta" prefWidth="76.800048828125" text="e-posta" />
-                              <TableColumn fx:id="tableView_PoliklinikIslemleri_telefonNo" prefWidth="122.39996337890625" text="Telefon Numarası" />
-                              <TableColumn fx:id="tableView_PoliklinikIslemleri_poliklinikAdi" prefWidth="99.20001220703125" text="Poliklinik" />
+                            <TableColumn fx:id="colPoliklinikAdi" prefWidth="187.0" text="Poliklinik ismi" />
+                            <TableColumn fx:id="colDoktorAdi" minWidth="0.0" prefWidth="171.0" text="Doktor Adı" />
+                              <TableColumn fx:id="colDoktorTC" prefWidth="134.0" text="Kimlik Numarası" />
+                              <TableColumn fx:id="cololusturma" prefWidth="191.0" text="Oluşturulma Tarihi" />
                           </columns>
                         </TableView>
                         <TextField fx:id="PoliklinikIslemler_poliklinikAdi" layoutX="63.0" layoutY="108.0" prefHeight="35.0" prefWidth="220.0" promptText="Poliklinik adı">
@@ -245,9 +226,14 @@
                               <Font name="Franklin Gothic Demi Cond" size="37.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="PoliklinikIslemler_doktorAdıSoyadi" layoutX="39.0" layoutY="338.0" prefHeight="30.0" prefWidth="166.0" promptText="Doktor Adı Soyadı" />
-                        <TextField fx:id="PoliklinikIslemler_KimlikNo" layoutX="39.0" layoutY="385.0" prefHeight="30.0" prefWidth="166.0" promptText="Kimlik Numarası" />
-                        <Button fx:id="btn_PoliklinikIslemler_kaydet" layoutX="232.0" layoutY="382.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Kaydet">
+                        <TextField fx:id="txtDoktorAdi" layoutX="39.0" layoutY="338.0" prefHeight="30.0" prefWidth="166.0" promptText="Doktor Adı Soyadı" />
+                        <TextField fx:id="txtDoktorSSN" layoutX="39.0" layoutY="385.0" prefHeight="30.0" prefWidth="166.0" promptText="Kimlik Numarası" />
+                        <Button fx:id="btn_PoliklinikIslemler_kaydet" layoutX="239.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleDoktorEkle" prefHeight="36.0" prefWidth="166.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Kaydet">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="listeyenile" layoutX="279.0" layoutY="385.0" mnemonicParsing="false" onAction="#verileriYukle" prefHeight="0.0" prefWidth="114.0" style="-fx-border-color: #dd4437; -fx-border-radius: 15; -fx-background-color: #dd4437; -fx-background-radius: 15; -fx-text-fill: white;" text="Yenile">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
                            </font>

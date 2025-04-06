@@ -4,4 +4,5 @@ module Hastane_otomasyon_ve_rapor_sistemi {
 	requires java.sql;
 	
 	opens application to javafx.graphics, javafx.fxml;
+	exports application;
 }
