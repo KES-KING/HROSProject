@@ -217,11 +217,7 @@ public class PersonelController {
 	private void verileriYukle() {
 		poliklinikListesi.clear();
 
-		String url = "jdbc:mysql://localhost:3306/HrosSQL?useSSL=false&serverTimezone=UTC";
-		String user = "javauser";
-		String password = "javauser";
-
-		try (Connection conn = DriverManager.getConnection(url, user, password);
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery("SELECT * FROM Poliklinik")) {
 

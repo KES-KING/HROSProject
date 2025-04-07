@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.doktoryonetimController">
 	<children>
 		<TabPane prefHeight="600.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -20,8 +20,8 @@
 						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="880.0">
 							<children>
 								<Label layoutX="470.0" layoutY="25.0" />
-								<TextField fx:id="HYhastaAdıArama" layoutX="33.0" layoutY="23.0" prefHeight="27.0" prefWidth="654.0" promptText="Hasta Adı girin..." style="-fx-border-color: blue; -fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: white;" />
-								<Button layoutX="755.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Ara">
+								<TextField fx:id="searchField" layoutX="33.0" layoutY="23.0" prefHeight="27.0" prefWidth="654.0" promptText="Hasta Adı girin..." style="-fx-border-color: blue; -fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: white;" />
+								<Button fx:id="searchButton" layoutX="853.0" layoutY="21.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Ara">
 									<font>
 										<Font name="Franklin Gothic Medium" size="17.0" />
 									</font>
@@ -30,17 +30,15 @@
 									<tabs>
 										<Tab fx:id="HY_butunHastalar" text="Bütün hastalar">
 											<content>
-												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="206.0" prefWidth="797.0">
+												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="1123.0">
 													<children>
 														<ScrollBar layoutX="1076.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="460.0" prefWidth="14.0" />
-														<TableView fx:id="ViewHYButun" prefHeight="461.0" prefWidth="1078.0">
+														<TableView fx:id="patientTable" prefHeight="461.0" prefWidth="1078.0">
 															<columns>
-																<TableColumn fx:id="HY_BH_isimSoyisim" prefWidth="153.59997254610062" text="İsim Soyisim" />
-																<TableColumn fx:id="HY_BH_Cinsiyet" prefWidth="176.8000030517578" text="Cinsiyet" />
-																<TableColumn fx:id="HY_BH_DogumTarihi" prefWidth="220.0" text="Doğum tarihi" />
-																<TableColumn fx:id="HY_BH_KimlikNumarasi" prefWidth="190.39996337890625" text="Kimlik numarası" />
-																<TableColumn fx:id="HY_BH_DoktorAdi" prefWidth="183.2000732421875" text="Doktor Adı" />
-																<TableColumn fx:id="HY_BH_PoliklinikAdi" prefWidth="156.00006103515625" text="Poliklinik Adı" />
+																<TableColumn fx:id="colUsername" prefWidth="411.0" text="Ad Soyad" />
+																<TableColumn fx:id="colBorndate" prefWidth="265.0" text="Doğum Tarihi" />
+																<TableColumn fx:id="colGender" prefWidth="163.0" text="Cinsiyet" />
+																<TableColumn fx:id="colSsn" prefWidth="238.0" text="TC Kimlik No" />
 															</columns>
 														</TableView>
 													</children>
@@ -49,7 +47,12 @@
 										</Tab>
 									</tabs>
 								</TabPane>
-								<Button layoutX="930.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Çıkış yap">
+								<Button layoutX="954.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="102.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Çıkış yap">
+									<font>
+										<Font name="Franklin Gothic Medium" size="17.0" />
+									</font>
+								</Button>
+								<Button fx:id="yenilebutton" onAction="#handleRefresh" layoutX="750.0" layoutY="21.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Yenile">
 									<font>
 										<Font name="Franklin Gothic Medium" size="17.0" />
 									</font>
@@ -67,17 +70,19 @@
 								<TextField fx:id="RYRandevuTarihi" layoutX="383.0" layoutY="24.0" prefHeight="26.0" prefWidth="171.0" promptText="Randevu Tarihi Ekleyin" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15;" />
 								<TabPane layoutY="74.0" prefHeight="495.0" prefWidth="1078.0" tabClosingPolicy="UNAVAILABLE">
 									<tabs>
-										<Tab fx:id="ViewRYTum" text="Tüm Randevular">
+										<Tab text="Tüm Randevular">
 											<content>
 												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 													<children>
 														<ScrollBar layoutX="1047.0" layoutY="-6.0" orientation="VERTICAL" prefHeight="470.0" prefWidth="14.0" />
-														<TableView prefHeight="466.0" prefWidth="1046.0">
+														<TableView fx:id="randevuTable" prefHeight="466.0" prefWidth="1046.0">
 															<columns>
-																<TableColumn fx:id="RYTH_isimSoyisim" prefWidth="257.6000183224678" text="İsim Soyisim" />
-																<TableColumn fx:id="RYTH_KimlikNumarasi" prefWidth="254.39996337890625" text="Kimlik Numarası" />
-																<TableColumn fx:id="RYTH_RandevuTarihi" prefWidth="283.20001220703125" text="Randevu Tarihi" />
-																<TableColumn fx:id="RYTH_RandevuSaati" prefWidth="253.60003662109375" text="Randevu Saati" />
+																<TableColumn fx:id="colPatientName" minWidth="120" prefWidth="231.0" text="Hasta Adı" />
+																<TableColumn fx:id="colPatientSsn" minWidth="100" prefWidth="187.0" text="TC No" />
+																<TableColumn fx:id="colPoliklinik" minWidth="120" prefWidth="183.0" text="Poliklinik" />
+																<TableColumn fx:id="colDoktor" minWidth="89.0" prefWidth="237.0" text="Doktor" />
+																<TableColumn fx:id="colTarih" minWidth="0.0" prefWidth="123.0" text="Tarih" />
+																<TableColumn fx:id="colSaat" minWidth="80" prefWidth="84.0" text="Saat" />
 															</columns>
 														</TableView>
 													</children>

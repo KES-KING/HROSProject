@@ -11,7 +11,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/javalibs/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar">
+	<classpathentry kind="lib" path="C:/Users/cafer.keskin/Downloads/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

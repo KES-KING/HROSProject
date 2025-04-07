@@ -25,7 +25,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="1100.0" style="-fx-background-color: white;">
                      <children>
-                        <Pane layoutX="29.0" layoutY="12.0" prefHeight="546.0" prefWidth="406.0" style="-fx-border-radius: 20; -fx-border-width: 5; -fx-background-radius: 20; -fx-background-color: #b3d2ff;">
+                        <Pane layoutX="32.0" layoutY="11.0" prefHeight="546.0" prefWidth="406.0" style="-fx-border-radius: 20; -fx-border-width: 5; -fx-background-radius: 20; -fx-background-color: #b3d2ff;">
                            <children>
                               <Text fill="#5175c6" layoutX="167.0" layoutY="106.0" scaleX="4.0" scaleY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RANDEVU AL" textAlignment="CENTER" wrappingWidth="79.05616253614426">
                                  <font>
@@ -33,15 +33,11 @@
                                  </font></Text>
                               <TextField fx:id="RandevuAl_isimSoyisim" layoutX="96.0" layoutY="182.0" prefHeight="27.0" prefWidth="225.0" promptText="Hasta Adı Soyadı" style="-fx-border-color: #5175c6; -fx-border-radius: 10; -fx-background-radius: 10;" />
                               <TextField fx:id="RandevuAl_KimlikNumarasi" layoutX="96.0" layoutY="218.0" prefHeight="27.0" prefWidth="224.0" promptText="TC Kimlik NO" style="-fx-border-color: #5175c6; -fx-border-radius: 10; -fx-background-radius: 10;" />
-                              <Button fx:id="btn_RandevuAl_onayla" alignment="CENTER" layoutX="45.0" layoutY="453.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Onayla">
+                              <Button fx:id="btn_RandevuAl_onayla" alignment="CENTER" layoutX="98.0" layoutY="453.0" mnemonicParsing="false" onAction="#handleKaydetAction" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Onayla">
                                  <font>
                                     <Font name="Franklin Gothic Medium" size="12.0" />
                                  </font></Button>
-                              <Button fx:id="btn_RandevuAl_Guncelle" alignment="CENTER" layoutX="272.0" layoutY="450.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Güncelle">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="12.0" />
-                                 </font></Button>
-                              <Button fx:id="btn_RandevuAl_Cıkıs" alignment="CENTER" layoutX="158.0" layoutY="450.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="90.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Çıkış">
+                              <Button fx:id="btn_RandevuAl_Cıkıs" alignment="CENTER" layoutX="230.0" layoutY="452.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #5175c6; -fx-text-fill: white;" text="Çıkış">
                                  <font>
                                     <Font name="Franklin Gothic Medium" size="12.0" />
                                  </font></Button>
@@ -68,20 +64,19 @@
                            <font>
                               <Font name="Franklin Gothic Demi Cond" size="10.0" />
                            </font></Text>
-                        <Pane fx:id="tableView_Randevularım" layoutX="551.0" prefHeight="574.0" prefWidth="551.0" style="-fx-background-color: c9c9c9;">
+                        <Pane layoutX="551.0" prefHeight="574.0" prefWidth="551.0" style="-fx-background-color: c9c9c9;">
                            <children>
                               <ScrollBar layoutX="1072.0" layoutY="4.0" orientation="VERTICAL" prefHeight="444.0" prefWidth="14.0" />
-                              <TableView layoutX="-1.0" prefHeight="44.0" prefWidth="553.0">
+                              <TableView fx:id="tableView_Randevularım" layoutX="-1.0" prefHeight="573.0" prefWidth="553.0">
                                 <columns>
-                                  <TableColumn fx:id="tableView_Randevularım_Poliklinik" prefWidth="135.20001220703125" text="Poliklinik" />
-                                  <TableColumn fx:id="tableView_Randevularım_Doktor" prefWidth="130.39996337890625" text="Doktor" />
-                                    <TableColumn fx:id="tableView_Randevularım_RandevuTarihi" prefWidth="143.199951171875" text="Randevu Tarihi" />
-                                    <TableColumn fx:id="tableView_Randevularım_RandevuSaati" prefWidth="139.20013427734375" text="Randevu Saati" />
+                                  <TableColumn fx:id="poliklinikColumn" prefWidth="135.20001220703125" text="Poliklinik" />
+                                  <TableColumn fx:id="doktorColumn" prefWidth="130.39996337890625" text="Doktor" />
+                                    <TableColumn fx:id="tarihColumn" prefWidth="143.199951171875" text="Randevu Tarihi" />
+                                    <TableColumn fx:id="saatColumn" prefWidth="139.20013427734375" text="Randevu Saati" />
                                 </columns>
                               </TableView>
                            </children>
                         </Pane>
-                        <TextField fx:id="Randevularım_saatSecimi" layoutX="289.0" layoutY="152.0" prefHeight="31.0" prefWidth="170.0" />
                         <DatePicker fx:id="Randevularım_tarihSecimi" layoutX="90.0" layoutY="153.0" prefHeight="29.0" prefWidth="169.0" />
                         <ImageView fitHeight="277.0" fitWidth="402.0" layoutX="70.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -98,16 +93,12 @@
                               <Font name="Franklin Gothic Demi Cond" size="15.0" />
                            </font>
                         </Text>
-                        <Button fx:id="btn_Randevularım_sil" contentDisplay="CENTER" layoutX="283.0" layoutY="203.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #c0ddff; -fx-text-fill: #5174c6;" text="Sil">
+                        <Button fx:id="btn_Randevularım_guncelle" contentDisplay="CENTER" layoutX="213.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleguncelle" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #c0ddff; -fx-text-fill: #5174c6;" text="Güncelle">
                            <font>
                               <Font name="Franklin Gothic Medium" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btn_Randevularım_guncelle" contentDisplay="CENTER" layoutX="140.0" layoutY="203.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #c0ddff; -fx-text-fill: #5174c6;" text="Güncelle">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="12.0" />
-                           </font>
-                        </Button>
+                        <ComboBox fx:id="timeComboBox2" layoutX="276.0" layoutY="155.0" prefHeight="25.0" prefWidth="168.0" promptText="Saat" />
                      </children>
                   </AnchorPane>
                </content>

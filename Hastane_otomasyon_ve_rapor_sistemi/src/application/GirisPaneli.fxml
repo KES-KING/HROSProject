@@ -10,77 +10,115 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:controller="application.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView fitHeight="392.0" fitWidth="518.0" layoutX="524.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@pictures/yatak.png" />
-         </image>
-      </ImageView>
-      <TabPane prefHeight="600.0" prefWidth="405.0" style="-fx-border-radius: 15;" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab style="-fx-border-radius: 15;" text="HASTA GIRISI">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="385.0" style="-fx-background-color: #bed9ff; -fx-border-radius: 15;">
-                     <children>
-                        <Text fill="#007dfe" layoutX="92.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HASTA GIRISI">
-                           <font>
-                              <Font name="Franklin Gothic Demi Cond" size="43.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="patienttC" alignment="CENTER" layoutX="46.0" layoutY="189.0" prefHeight="58.0" prefWidth="320.0" promptText="TC KIMLIK NUMARASI" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="btnKullanıcıGirisi" onAction="#handlepublic" layoutX="50.0" layoutY="333.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #007dfe; -fx-background-radius: 15;" text="Giriş yap">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </Button>
-                        <TextField fx:id="PatientPassword" alignment="CENTER" layoutX="46.0" layoutY="258.0" prefHeight="58.0" prefWidth="320.0" promptText="PAROLA" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="btnHastaKayit" onAction="#handleButtonAction" layoutX="210.0" layoutY="333.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #007dfe; -fx-background-radius: 15;" text="Kayıt ol">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab style="-fx-border-radius: 15;" text="DOKTOR GIRISI">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="385.0" style="-fx-background-color: #bed9ff; -fx-border-radius: 15;">
-                     <children>
-                        <Text fill="#007dfe" layoutX="79.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DOKTOR GIRISI">
-                           <font>
-                              <Font name="Franklin Gothic Demi Cond" size="43.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="txtTC" alignment="CENTER" layoutX="71.0" layoutY="188.0" prefHeight="59.0" prefWidth="264.0" promptText="TC KIMLIK NUMARASI" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="btnDoktorGirisi" onAction="#handleGirisAction" layoutX="91.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="224.0" style="-fx-background-color: #007dfe; -fx-background-radius: 15;" text="Giriş yap">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </Button>
-                        <TextField fx:id="txtSifre" alignment="CENTER" layoutX="71.0" layoutY="257.0" prefHeight="59.0" prefWidth="264.0" promptText="PAROLA" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
-                           <font>
-                              <Font name="Franklin Gothic Medium" size="18.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+<AnchorPane fx:controller="application.LoginController"
+	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0"
+	style="-fx-background-color: white;"
+	xmlns="http://javafx.com/javafx/23.0.1"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<ImageView fitHeight="392.0" fitWidth="518.0"
+			layoutX="524.0" layoutY="124.0" pickOnBounds="true"
+			preserveRatio="true">
+			<image>
+				<Image url="@pictures/yatak.png" />
+			</image>
+		</ImageView>
+		<TabPane prefHeight="600.0" prefWidth="405.0"
+			style="-fx-border-radius: 15;" tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+				<Tab style="-fx-border-radius: 15;" text="HASTA GIRISI">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="188.0" prefWidth="385.0"
+							style="-fx-background-color: #bed9ff; -fx-border-radius: 15;">
+							<children>
+								<Text fill="#007dfe" layoutX="92.0" layoutY="165.0"
+									strokeType="OUTSIDE" strokeWidth="0.0" text="HASTA GIRISI">
+									<font>
+										<Font name="Franklin Gothic Demi Cond" size="43.0" />
+									</font>
+								</Text>
+								<TextField fx:id="patienttC" alignment="CENTER"
+									layoutX="46.0" layoutY="189.0" prefHeight="58.0"
+									prefWidth="320.0" promptText="TC KIMLIK NUMARASI"
+									style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</TextField>
+								<Button fx:id="btnKullanıcıGirisi"
+									onAction="#handlepublic" layoutX="50.0" layoutY="333.0"
+									mnemonicParsing="false" prefHeight="44.0" prefWidth="145.0"
+									style="-fx-background-color: #007dfe; -fx-background-radius: 15;"
+									text="Giriş yap">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</Button>
+								<TextField fx:id="PatientPassword" alignment="CENTER"
+									layoutX="46.0" layoutY="258.0" prefHeight="58.0"
+									prefWidth="320.0" promptText="PAROLA"
+									style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</TextField>
+								<Button fx:id="btnHastaKayit"
+									onAction="#handleButtonAction" layoutX="210.0" layoutY="333.0"
+									mnemonicParsing="false" prefHeight="44.0" prefWidth="145.0"
+									style="-fx-background-color: #007dfe; -fx-background-radius: 15;"
+									text="Kayıt ol">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</Button>
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab style="-fx-border-radius: 15;" text="DOKTOR GIRISI">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="188.0" prefWidth="385.0"
+							style="-fx-background-color: #bed9ff; -fx-border-radius: 15;">
+							<children>
+								<Text fill="#007dfe" layoutX="79.0" layoutY="163.0"
+									strokeType="OUTSIDE" strokeWidth="0.0" text="DOKTOR GIRISI">
+									<font>
+										<Font name="Franklin Gothic Demi Cond" size="43.0" />
+									</font>
+								</Text>
+								<TextField fx:id="txtTC" alignment="CENTER"
+									layoutX="71.0" layoutY="188.0" prefHeight="59.0"
+									prefWidth="264.0" promptText="TC KIMLIK NUMARASI"
+									style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</TextField>
+								<Button fx:id="btnDoktorGirisi"
+									onAction="#handleGirisAction" layoutX="91.0" layoutY="330.0"
+									mnemonicParsing="false" prefHeight="44.0" prefWidth="224.0"
+									style="-fx-background-color: #007dfe; -fx-background-radius: 15;"
+									text="Giriş yap">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</Button>
+								<TextField fx:id="txtSifre" alignment="CENTER"
+									layoutX="71.0" layoutY="257.0" prefHeight="59.0"
+									prefWidth="264.0" promptText="PAROLA"
+									style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #bdc2c5; -fx-background-color: white;">
+									<font>
+										<Font name="Franklin Gothic Medium" size="18.0" />
+									</font>
+								</TextField>
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+	</children>
 </AnchorPane>
