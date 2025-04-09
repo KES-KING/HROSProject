@@ -20,6 +20,8 @@ import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 public class PersonelController {
 
@@ -104,21 +106,45 @@ public class PersonelController {
 	private TextField txtDoktorAdi;
 	@FXML
 	private TextField txtDoktorSSN;
+	@FXML
+	private TextArea onaydetayid;
+	@FXML
+	private ComboBox offtimecombobox;
 
 	// arama kısmı
 	@FXML
 	private TextField txtAramaTC;
 	@FXML
 	private Button btnAra;
+	@FXML
+	private Button offdayguncelle;
+	@FXML
 	private FilteredList<Personel> filteredPersonelList;
+	
+	@FXML
+	private TableView<OffDay> offDayTable;
+	@FXML
+	private TableColumn<OffDay, String> colDocName;
+	@FXML
+	private TableColumn<OffDay, String> colDocTc;
+	@FXML
+	private TableColumn<OffDay, String> colDate;
+	@FXML
+	private TableColumn<OffDay, String> colTime;
+	@FXML
+	private TableColumn<OffDay, String> colStatus;
+	@FXML
+	private TableColumn<OffDay, String> colComment;
 
 	// Database Configuration
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/HrosSQL";
 	private static final String DB_USER = "javauser";
 	private static final String DB_PASSWORD = "javauser";
 
-	private ObservableList<Personel> personelListesi = FXCollections.observableArrayList();
+	private int currentUserId;
 
+	private ObservableList<Personel> personelListesi = FXCollections.observableArrayList();
+	private List<String> isimListesi = Arrays.asList("Onaylandı", "Reddedildi");
 	@FXML
 	private void initialize() {
 		File klasor = new File(RESIM_KLASOR);
@@ -138,11 +164,79 @@ public class PersonelController {
 		colDoktorAdi.setCellValueFactory(new PropertyValueFactory<>("doktorAdi"));
 		colDoktorTC.setCellValueFactory(new PropertyValueFactory<>("doktorTC"));
 		cololusturma.setCellValueFactory(new PropertyValueFactory<>("olusturma"));
+		
+		colDocName.setCellValueFactory(new PropertyValueFactory<>("docName"));
+		colDocTc.setCellValueFactory(new PropertyValueFactory<>("docTc"));
+		colDate.setCellValueFactory(new PropertyValueFactory<>("docDate"));
+		colTime.setCellValueFactory(new PropertyValueFactory<>("docTime"));
+		colStatus.setCellValueFactory(new PropertyValueFactory<>("docStatus"));
+		colComment.setCellValueFactory(new PropertyValueFactory<>("docComment"));
 
 		// Verileri yükle
 		verileriYukle();
 		verileriYenile();
+		LoadOffData();
+		OffDayGüncelle();
+		
+		offtimecombobox.getItems().addAll(isimListesi);
+		
 	}
+
+	public void setCurrentUserId(int userId) {
+		this.currentUserId = userId;
+	}
+	@FXML
+    private void OffDayGüncelle() {
+        OffDay secilioff = offDayTable.getSelectionModel().getSelectedItem();
+        if (secilioff == null) {
+            return;
+        }
+
+        String onayaciklama = onaydetayid.getText();
+        String onaydetay = offtimecombobox.getValue().toString();
+        if (onayaciklama == null || onaydetay == null) {
+            return;
+        }
+
+        String sql = "UPDATE offday SET docstatus = ?, doccomment = ? WHERE id = ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, onaydetay);
+            stmt.setString(2, onayaciklama);
+            stmt.setInt(3, secilioff.getId());
+            
+            if (stmt.executeUpdate() > 0) {
+            	LoadOffData();
+            }
+        } catch (SQLException e) {
+        }
+    }
+	private void LoadOffData() {
+		String query = "SELECT id, patient_id, docname, doctc, docdate, doctime, docstatus, doccomment "
+				+ "FROM offday";
+
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+
+
+			ObservableList<OffDay> offDays = FXCollections.observableArrayList();
+			while (rs.next()) {
+				offDays.add(new OffDay(rs.getInt("id"), rs.getInt("patient_id"), rs.getString("docname"),
+						rs.getString("doctc"), rs.getString("docdate"), rs.getString("doctime"),
+						rs.getString("docstatus"), rs.getString("doccomment")));
+			}
+
+			offDayTable.setItems(offDays);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			showAlert(Alert.AlertType.ERROR, "Veritabanı Hatası",
+					"Hata kodu: " + e.getErrorCode() + "\nMesaj: " + e.getMessage());
+		}
+	}
+
 
 	@FXML
 	private void handleResimEkleAction() {

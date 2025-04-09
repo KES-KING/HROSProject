@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.Tab?>
@@ -52,7 +54,7 @@
 										<Font name="Franklin Gothic Medium" size="17.0" />
 									</font>
 								</Button>
-								<Button fx:id="yenilebutton" onAction="#handleRefresh" layoutX="750.0" layoutY="21.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Yenile">
+								<Button fx:id="yenilebutton" layoutX="750.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleRefresh" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-background-radius: 15;" text="Yenile">
 									<font>
 										<Font name="Franklin Gothic Medium" size="17.0" />
 									</font>
@@ -99,6 +101,41 @@
 						</AnchorPane>
 					</content>
 				</Tab>
+            <Tab text="Off Day Kaydı">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="579.0">
+                     <children>
+                        <TextField fx:id="doctortc" layoutX="208.0" layoutY="24.0" promptText="Doktor TC Kimlik" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15;" />
+                        <TabPane layoutY="74.0" prefHeight="495.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="Off Day Kayıtları">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="offDayTable" prefHeight="466.0" prefWidth="1100.0">
+                                             <columns>
+                                                <TableColumn fx:id="colDocName" minWidth="120" prefWidth="221.0" text="Doktor Adı" />
+                                                <TableColumn fx:id="colDocTc" minWidth="86.0" prefWidth="159.0" text="TC No" />
+                                                <TableColumn fx:id="colDate" minWidth="80.0" prefWidth="143.0" text="Tarih" />
+                                                <TableColumn fx:id="colTime" minWidth="89.0" prefWidth="98.0" text="Saat" />
+                                                <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="173.0" text="Başhekim Onay Durumu" />
+                                                <TableColumn fx:id="colComment" minWidth="0.0" prefWidth="300.0" text="Açıklama" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                        <Button fx:id="btnRandevuEkle1" layoutX="778.0" layoutY="25.0" mnemonicParsing="false" onAction="#kaydetoffday" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: blue; -fx-background-radius: 15; -fx-text-fill: white;" text="Ekle" />
+                        <TextField fx:id="doctorname" layoutX="40.0" layoutY="25.0" promptText="Doktor İsim Soyisim" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-background-radius: 15;" />
+                        <DatePicker fx:id="doctortarih" layoutX="394.0" layoutY="25.0" promptText="Tarih" />
+                        <ComboBox fx:id="doctortime" layoutX="588.0" layoutY="26.0" prefWidth="150.0" promptText="Saat İtibarı İle" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
 			</tabs>
 		</TabPane>
 	</children>

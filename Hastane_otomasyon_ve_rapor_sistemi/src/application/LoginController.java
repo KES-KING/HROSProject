@@ -46,7 +46,7 @@ public class LoginController {
                         int userId = rs.getInt("id");
                         
                         SessionManager.login(userId, isAdmin);
-                        redirectToDashboard(isAdmin);
+                        redirectToDashboard(isAdmin, userId); // Kullanıcı ID'sini geçir
                     } else {
                         showAlert("Hata", "Hatalı şifre!");
                     }
@@ -121,13 +121,24 @@ public class LoginController {
         return tcNo != null && tcNo.length() == 11 && tcNo.matches("\\d+");
     }
 
-    private void redirectToDashboard(boolean isAdmin) {
+    private void redirectToDashboard(boolean isAdmin, int userId) {
         try {
             String fxmlPath = isAdmin ? "PersonelPaneli.fxml" : "doktoryönetimpaneli.fxml";
-            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            
+            // Controller'a kullanıcı ID'sini geçir
+            if (isAdmin) {
+                PersonelController controller = loader.getController();
+                controller.setCurrentUserId(userId);
+            } else {
+                doktoryonetimController controller = loader.getController();
+                controller.setCurrentUserId(userId);
+            }
             
             Stage stage = (Stage) txtTC.getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.show();
             
         } catch (Exception e) {
             showAlert("Hata", "Panel yüklenirken hata oluştu: " + e.getMessage());

@@ -21,6 +21,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import java.io.IOException;
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
 
 public class doktoryonetimController {
 
@@ -34,13 +35,26 @@ public class doktoryonetimController {
 	private TableColumn<Patient, String> colGender;
 	@FXML
 	private TableColumn<Patient, String> colSsn;
-
 	@FXML
-	private TextField searchField;
+	private ObservableList<Patient> masterData = FXCollections.observableArrayList();
+
 	@FXML
 	private Button searchButton;
 
-	private ObservableList<Patient> masterData = FXCollections.observableArrayList();
+	@FXML
+	private TextField searchField;
+
+	// odd day ekleme sistemi başlangıç
+	@FXML
+	private TextField doctorname;
+	@FXML
+	private TextField doctortc;
+	@FXML
+	private DatePicker doctortarih;
+	@FXML
+	private ComboBox doctortime;
+	@FXML
+	Button btnRandevuEkle1;
 
 	@FXML
 	private TableView<RandevuTable> randevuTable;
@@ -58,8 +72,24 @@ public class doktoryonetimController {
 	private TableColumn<RandevuTable, String> colSaat;
 
 	@FXML
+	private TableView<OffDay> offDayTable;
+	@FXML
+	private TableColumn<OffDay, String> colDocName;
+	@FXML
+	private TableColumn<OffDay, String> colDocTc;
+	@FXML
+	private TableColumn<OffDay, String> colDate;
+	@FXML
+	private TableColumn<OffDay, String> colTime;
+	@FXML
+	private TableColumn<OffDay, String> colStatus;
+	@FXML
+	private TableColumn<OffDay, String> colComment;
+
+	@FXML
 	private Button yenilebutton;
 
+	private int currentUserId;
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/HrosSQL";
 	private static final String DB_USER = "javauser";
 	private static final String DB_PASSWORD = "javauser";
@@ -72,6 +102,13 @@ public class doktoryonetimController {
 		colGender.setCellValueFactory(new PropertyValueFactory<>("usergender"));
 		colSsn.setCellValueFactory(new PropertyValueFactory<>("userssn"));
 		// Sütun bağlamaları
+		colDocName.setCellValueFactory(new PropertyValueFactory<>("docName"));
+		colDocTc.setCellValueFactory(new PropertyValueFactory<>("docTc"));
+		colDate.setCellValueFactory(new PropertyValueFactory<>("docDate"));
+		colTime.setCellValueFactory(new PropertyValueFactory<>("docTime"));
+		colStatus.setCellValueFactory(new PropertyValueFactory<>("docStatus"));
+		colComment.setCellValueFactory(new PropertyValueFactory<>("docComment"));
+
 		colPatientName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
 		colPatientSsn.setCellValueFactory(new PropertyValueFactory<>("patientSsn"));
 		colPoliklinik.setCellValueFactory(new PropertyValueFactory<>("poliklinik"));
@@ -84,7 +121,74 @@ public class doktoryonetimController {
 		// Verileri yükle
 		loadRandevuData();
 		// Arama özelliğini ayarla
-		 searchButton.setOnAction(event -> searchPatients());
+		searchButton.setOnAction(event -> searchPatients());
+		setupTimeComboBoxes();
+		loadOffDaysForUser(currentUserId);
+	}
+
+	public void setCurrentUserId(int userId) {
+		this.currentUserId = userId;
+
+		loadOffDaysForUser(currentUserId);
+	}
+
+	@FXML
+	private void kaydetoffday() {
+		if (!validateInputs())
+			return;
+
+		String sql = "INSERT INTO offday (patient_id, docname, doctc, docdate, doctime) " + "VALUES (?, ?, ?, ?, ?)";
+
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+			stmt.setInt(1, currentUserId);
+			stmt.setString(2, doctorname.getText().trim());
+			stmt.setString(3, doctortc.getText().trim());
+			stmt.setString(4, doctortime.getValue().toString());
+			stmt.setString(5, doctortarih.getValue().format(DateTimeFormatter.ISO_DATE));
+
+			if (stmt.executeUpdate() > 0) {
+				clearForm();
+				loadOffDaysForUser(currentUserId);
+			}
+		} catch (SQLException e) {
+		}
+	}
+
+	private void loadOffDaysForUser(int userId) {
+		String query = "SELECT id, patient_id, docname, doctc, docdate, doctime, docstatus, doccomment "
+				+ "FROM offday WHERE patient_id = ?";
+
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(query)) {
+
+			stmt.setInt(1, userId);
+			ResultSet rs = stmt.executeQuery();
+
+			ObservableList<OffDay> offDays = FXCollections.observableArrayList();
+			while (rs.next()) {
+				offDays.add(new OffDay(rs.getInt("id"), rs.getInt("patient_id"), rs.getString("docname"),
+						rs.getString("doctc"), rs.getString("docdate"), rs.getString("doctime"),
+						rs.getString("docstatus"), rs.getString("doccomment")));
+			}
+
+			offDayTable.setItems(offDays);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	private void setupTimeComboBoxes() {
+		ObservableList<String> times = FXCollections.observableArrayList();
+		for (int hour = 0; hour < 24; hour++) {
+			for (int minute = 0; minute < 60; minute += 15) {
+				times.add(String.format("%02d:%02d", hour, minute));
+			}
+		}
+		doctortime.setItems(times);
 	}
 
 	private void loadRandevuData() {
@@ -134,18 +238,19 @@ public class doktoryonetimController {
 			showAlert("Veritabanı Hatası", "Hasta verileri yüklenemedi: " + e.getMessage());
 		}
 	}
+
 	private void searchPatients() {
-        String searchText = searchField.getText().trim();
-        
-        if (searchText.isEmpty()) {
-        	loadPatientData();
-            return;
-        }
-        
-        String query = "SELECT username, borndate, usergender, userssn FROM PatientCustomer " +
-                      "WHERE isatcive = true AND username LIKE ?";
-        executeParameterizedQuery(query, "%" + searchText + "%");
-    }
+		String searchText = searchField.getText().trim();
+
+		if (searchText.isEmpty()) {
+			loadPatientData();
+			return;
+		}
+
+		String query = "SELECT username, borndate, usergender, userssn FROM PatientCustomer "
+				+ "WHERE isatcive = true AND username LIKE ?";
+		executeParameterizedQuery(query, "%" + searchText + "%");
+	}
 
 	@FXML
 	private void handleButtonAction(ActionEvent event) {
@@ -163,56 +268,74 @@ public class doktoryonetimController {
 		}
 	}
 
-	 private void executeParameterizedQuery(String query, String param) {
-	        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-	             PreparedStatement stmt = conn.prepareStatement(query)) {
-	            
-	            stmt.setString(1, param);
-	            ResultSet rs = stmt.executeQuery();
-	            
-	            fillTableWithResults(rs);
-	            
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            showAlert("Veritabanı Hatası", "Arama sırasında hata oluştu: " + e.getMessage());
-	        }
-	    }
+	private void executeParameterizedQuery(String query, String param) {
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(query)) {
 
-	    private void executePatientQuery(String query) {
-	        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-	             Statement stmt = conn.createStatement();
-	             ResultSet rs = stmt.executeQuery(query)) {
-	            
-	            fillTableWithResults(rs);
-	            
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            showAlert("Veritabanı Hatası", "Veriler yüklenemedi: " + e.getMessage());
-	        }
-	    }
+			stmt.setString(1, param);
+			ResultSet rs = stmt.executeQuery();
 
-	    private void fillTableWithResults(ResultSet rs) throws SQLException {
-	        ObservableList<Patient> patients = FXCollections.observableArrayList();
-	        
-	        while (rs.next()) {
-	            Patient patient = new Patient(
-	                rs.getString("username"),
-	                rs.getString("borndate"),
-	                rs.getString("usergender"),
-	                rs.getString("userssn")
-	            );
-	            patients.add(patient);
-	        }
-	        
-	        patientTable.setItems(patients);
-	    }
+			fillTableWithResults(rs);
 
-	    @FXML
-	    private void handleRefresh() {
-	    	loadPatientData();
-	        searchField.clear();
-	    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+			showAlert("Veritabanı Hatası", "Arama sırasında hata oluştu: " + e.getMessage());
+		}
+	}
 
+	private void executePatientQuery(String query) {
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+
+			fillTableWithResults(rs);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			showAlert("Veritabanı Hatası", "Veriler yüklenemedi: " + e.getMessage());
+		}
+	}
+
+	private void fillTableWithResults(ResultSet rs) throws SQLException {
+		ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+		while (rs.next()) {
+			Patient patient = new Patient(rs.getString("username"), rs.getString("borndate"),
+					rs.getString("usergender"), rs.getString("userssn"));
+			patients.add(patient);
+		}
+
+		patientTable.setItems(patients);
+	}
+
+	@FXML
+	private void handleRefresh() {
+		loadPatientData();
+		searchField.clear();
+	}
+
+	private boolean validateInputs() {
+		StringBuilder errors = new StringBuilder();
+
+		if (doctorname.getText().trim().isEmpty()) {
+			errors.append("- Ad alanı boş olamaz\n");
+		}
+
+		if (doctortc.getText().trim().length() != 11) {
+			errors.append("- TC kimlik numarası 11 haneli olmalıdır\n");
+		}
+
+		if (doctortarih.getValue() == null) {
+			errors.append("- Randevu tarihi seçilmelidir\n");
+		}
+		return true;
+	}
+
+	private void clearForm() {
+		doctorname.clear();
+		doctortc.clear();
+		doctortarih.setValue(null);
+	}
 
 	private void showAlert(String title, String message) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
